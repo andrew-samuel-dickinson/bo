@@ -84,7 +84,7 @@ function markQuestions()
     }
     else
     {
-        comment = "YOUR CLUE ARE THE LETTERS: R R P";
+        comment = final_clue;
         uTubeElt.src = video;
         photoElt.src = default_image;
     }
