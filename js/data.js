@@ -27,9 +27,9 @@ myQaData = [
     {"Q" : "10 + x = 20. x = ??", "A" : "10"}
 ];
 
-video_id = "tb63PdPweDc";
+video_id = "npgsKW8bjOM";
 video = "https://www.youtube.com/embed/" + video_id + "?autoplay=1";
 
 default_image = "http://placehold.it/800x500"
 
-final_clue = "YOUR CLUE ARE THE LETTERS: I J A"
+final_clue = "YOUR CLUE ARE THE LETTERS: E B X"
