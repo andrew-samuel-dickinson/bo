@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>reveal.js</title>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+
+  <script src="js/generateSlides.js"></script>
+
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/league.css" id="theme" />  
+  <!-- <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />   -->
+
+  <!-- Theme used for syntax highlighted code -->
+  <!-- <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"/> -->
+  <link rel="stylesheet" href="css/myRevealStyleSheet.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides" id="mySlides">
+
+      <section>
+        <h2 class="slideheader">Bo's Vocabulary</h2>        
+      </section>
+
+  <!-- <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script> -->
+  <script>
+    Reveal.initialize({
+      history: true,
+      transition: "linear",
+
+      math: {
+        // mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+        config: "TeX-AMS_HTML-full",
+        TeX: {
+          Macros: {
+            R: "\\mathbb{R}",
+            set: ["\\left\\{#1 \\; ; \\; #2\\right\\}", 2]
+          }
+        }
+      },
+
+      plugins: [RevealMath]
+    });
+
+    Reveal.on('ready', generateSlides);
+  </script>
+</body>
+
+</html>
