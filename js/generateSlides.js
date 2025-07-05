@@ -22,14 +22,22 @@ function generateSlides()
 }
 function getWordsAsLongString()
 {
-    myString = "weak dude";
+    myString = "Wraith frenzied  roughhouse  scornfully  deliquent  smug  vicious  gossip  rumour  serenity  tranquil  anxiety  sincere  EU  PS  departure  giddy  nostalgia  intriguing  irrespective  regardless  confound  halt  uniformly  regal  extraordinary  duplicitous  bough  trough  through  threw  girdle  prerequisite  erq  dimishing  converge  deduced  predecessors  pinpoint  arbitrarily  utterly  wilt  menacing  secretary";
+    //myString = "Wraith frenzied"
     return myString;
 }
 
 function getWords()
 {
     myString = getWordsAsLongString();
-    ret = myString.split(" ");
+    unfilteredArray = myString.split(" ");
+    ret = []
+    for(var i = 0; i < unfilteredArray.length; ++i)
+    {
+        if(unfilteredArray[i].length > 1)
+            ret.push(unfilteredArray[i]);
+    }
+
     return ret;
 }
 
@@ -94,7 +102,8 @@ async function getSlideHTML(word)
     html += '</li>'
     html += '<li class="bullet2">'
     html += styPrefix + "Example: " + stySuffix;
-    html += dct["example"];
+    if(typeof(dct["example"]) != "undefined")
+        html += dct["example"];
     html += '</li>'
     html += "</ul>"
     html += "</ul>"
