@@ -10,27 +10,45 @@ async function getEntryComplete(word) {
   return obj;
 }
 
-async function getEntry(word)
+async function getMinimalEntry(word)
 {
     let entryComplete = await getEntryComplete(word);
     let ret = {};
-    ret["partOfSpeech"] = obj(entryComplete[0]["meanings"][0]["partOfSpeech"]);
+    ret["partOfSpeech"] = entryComplete[0]["meanings"][0]["partOfSpeech"];
+    ret["definition"] = entryComplete[0]["meanings"][0]["definitions"][0]["definition"];
+    ret["example"] = entryComplete[0]["meanings"][0]["definitions"][0]["example"];
+    ret["synonyms"] = entryComplete[0]["meanings"][0]["synonyms"];
+    ret["antonyms"] = entryComplete[0]["meanings"][0]["antonyms"];
+    ret["audio"] = entryComplete[0]["phonetics"][0]["audio"];
+    //ret["WHOLE"] = entryComplete;
     return ret
 }
 
-let obj = getEntryComplete("acid");
+// let obj = getEntryComplete("acid");
 
-obj.then(
-    function(value) {
-        console.log("***Calling VALUE***");
-        console.log(value[0]["meanings"][0]);
-        console.log(value[0]["meanings"][0]["partOfSpeech"]);
-        console.log(value[0]["meanings"][0]["synonyms"]);
-        console.log(value[0]["meanings"][0]["antonyms"]);
-        console.log(value[0]["meanings"][0]["definitions"][0]["definition"]);
-        console.log(value[0]["meanings"][0]["definitions"][0]);
-        //console.log(value);
+// obj.then(
+//     function(value) {
+//         console.log("***Calling VALUE***");
+//         console.log(value[0]["meanings"][0]);
+//         console.log(value[0]["meanings"][0]["partOfSpeech"]);
+//         console.log(value[0]["meanings"][0]["synonyms"]);
+//         console.log(value[0]["meanings"][0]["antonyms"]);
+//         console.log(value[0]["meanings"][0]["definitions"][0]["definition"]);
+//         console.log(value[0]["meanings"][0]["definitions"][0]);
+//         //console.log(value);
+//     },
+//     function(error) {console.log(error);},
+// );
+
+let obj2 = getMinimalEntry("wood");
+
+obj2.then(
+    function(value)
+    {
+        console.log(value);
     },
-    function(error) {console.log(error);},
-)
-
+    function(error)
+    {
+        console.log(error);
+    }
+);
